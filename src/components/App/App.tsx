@@ -1,10 +1,16 @@
-import './App.css'
+import ContrastWindow from "../ContrastWindow/ContrastWindow"
+import Header from "../Header/Header"
+import Palette from "../Palette/Palette"
 
 function App() {
 
   return (
     <>
-      <h1>Hej och välkommen till min sida</h1>
+      <Header/>
+      <main>
+        <Palette/>
+        <ContrastWindow/>
+      </main>
     </>
   )
 }
