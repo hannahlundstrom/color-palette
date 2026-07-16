@@ -5,13 +5,13 @@ import Palette from "../Palette/Palette"
 function App() {
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Header/>
-      <main>
+      <main className="bg-pink-300 flex flex-1 justify-between">
         <Palette/>
         <ContrastWindow/>
       </main>
-    </>
+    </div>
   )
 }
 

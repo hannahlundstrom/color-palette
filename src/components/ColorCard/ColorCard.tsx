@@ -1,16 +1,18 @@
-function ColorCard() {
+import type { Color } from "../../types/color"
+
+function ColorCard({color}: {color: Color}) {
 
   return (
-    <article>
-      <div className="color-preview">
+    <article className="w-full h-full flex flex-col outline-solid">
+      <div id="color-preview" className="flex-1" style={{ backgroundColor: color.hexCode }}>
       </div>
-      <div className="color-details">
-        <div className="color-info">
-            <span className="color-name">Name</span>
-            <span className="color-hex">#FFFFFF</span>
-            <span className="color-nickname">Nickname</span>
+      <div id="color-details" className="bg-white flex justify-between">
+        <div id="color-info" className="flex flex-col">
+            <span id="color-name">{color.name}</span>
+            <span id="color-hex-code">{color.hexCode}</span>
+            <span id="color-nickname">{color.nickname}</span>
         </div>
-        <div className="color-actions">
+        <div id="color-actions" className="flex flex-col">
             <span>Lock / Unlock</span>
         </div>
       </div>
