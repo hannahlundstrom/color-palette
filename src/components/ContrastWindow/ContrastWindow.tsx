@@ -1,7 +1,7 @@
 function ContrastWindow() {
 
   return (
-    <section className="bg-green-600 flex-1 w-full">
+    <section className="flex-1 w-full bg-gray-100">
       <h2>Contrast Window</h2>
       <p>Content Here</p>
     </section>

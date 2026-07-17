@@ -1,8 +1,9 @@
 function Toolbar() {
 
   return (
-    <div className="bg-purple-400">
-      <h2>text</h2>
+    <div className="bg-gray-200 p-1 px-4 flex justify-between">
+      <button>Button 1</button>
+      <button>Button 2</button>
     </div>
   )
 }

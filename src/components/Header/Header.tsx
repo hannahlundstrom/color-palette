@@ -1,8 +1,8 @@
 function Header() {
 
   return (
-    <header className="bg-yellow-400">
-      <h1>Color Palette With Contrast Preview</h1>
+    <header className="bg-white p-3 flex justify-center">
+      <h1 className="font-medium text-lg">Color Palette With Contrast Preview</h1>
     </header>
   )
 }

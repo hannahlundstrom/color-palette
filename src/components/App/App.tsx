@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header/>
-      <main className="bg-pink-300 flex flex-1 justify-between">
+      <main className="flex flex-1 justify-between">
         <Palette/>
         <ContrastWindow/>
       </main>
