@@ -1,9 +1,12 @@
-function Toolbar() {
+function Toolbar({colorCount, setColorCount}: {colorCount: number, setColorCount: React.Dispatch<React.SetStateAction<number>>}) {
 
   return (
     <div className="bg-gray-200 p-1 px-4 flex justify-between">
-      <button>Button 1</button>
-      <button>Button 2</button>
+      <div>
+        <button onClick={() => setColorCount(prev => prev-1)}>-</button>
+        <span>{colorCount}</span>
+        <button onClick={() => setColorCount(prev => prev+1)}>+</button>
+      </div>
     </div>
   )
 }
