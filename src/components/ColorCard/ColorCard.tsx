@@ -1,4 +1,4 @@
-import type { Color } from "../../types/color"
+import type { Color } from "../../classes/color"
 
 function ColorCard({color}: {color: Color}) {
 

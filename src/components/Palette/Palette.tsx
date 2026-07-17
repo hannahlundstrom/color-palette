@@ -1,8 +1,7 @@
 import { useState } from "react"
 import Toolbar from "./Toolbar"
-import type { Color } from "../../types/color";
+import Color from "../../classes/color";
 import ColorCard from "../ColorCard/ColorCard";
-import { randomColor } from "../../utils/util";
 
 function Palette() {
 
@@ -10,7 +9,7 @@ const [colorCount, setColorCount] = useState(3);
 const [colors, setColors] = useState<Color[]>([]);
 
 for (let i = colors.length; i < colorCount; i++) {
-  colors.push(randomColor());
+  colors.push(new Color());
 }
 
   return (

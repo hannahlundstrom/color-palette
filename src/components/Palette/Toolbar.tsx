@@ -7,6 +7,7 @@ function Toolbar({colorCount, setColorCount}: {colorCount: number, setColorCount
         <span>{colorCount}</span>
         <button onClick={() => setColorCount(prev => prev+1)}>+</button>
       </div>
+      <button>Reroll</button>
     </div>
   )
 }
