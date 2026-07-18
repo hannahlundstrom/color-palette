@@ -5,7 +5,7 @@ import {
   Input,
   Label,
   NumberField,
-  Toolbar,
+  Toolbar as AriaToolbar,
 } from "react-aria-components";
 
 interface ToolbarProps {
@@ -14,14 +14,10 @@ interface ToolbarProps {
   randomizeColors: () => void;
 }
 
-function PaletteToolbar({
-  colorCount,
-  setColorCount,
-  randomizeColors,
-}: ToolbarProps) {
+function Toolbar({ colorCount, setColorCount, randomizeColors }: ToolbarProps) {
   return (
-    <Toolbar
-      aria-label="INSERT LABEL HERE"
+    <AriaToolbar
+      aria-label="Color palette toolbar"
       className="bg-gray-200 p-1 px-6 flex justify-between gap-6"
     >
       <Group aria-label="Colors" className="flex gap-6">
@@ -53,8 +49,8 @@ function PaletteToolbar({
           <Save size={20} />
         </Button>
       </Group>
-    </Toolbar>
+    </AriaToolbar>
   );
 }
 
-export default PaletteToolbar;
+export default Toolbar;

@@ -35,6 +35,10 @@ class Color {
     return n_name;
   }
 
+  public copy() {
+    return new Color(undefined, this._hexCode, this._nickname, this._locked);
+  }
+  
   public clone() {
     return new Color(this._id, this._hexCode, this._nickname, this._locked);
   }
