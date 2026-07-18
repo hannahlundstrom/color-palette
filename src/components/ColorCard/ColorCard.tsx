@@ -1,6 +1,9 @@
+import { Pin, PinOff } from "lucide-react";
 import Color from "../../classes/color";
+import { Button } from "react-aria-components";
 
 //TODO: Update this to use react-aria components such as <Text>
+//TODO: Update color actions div to toolbar
 function ColorCard({
   color,
   toggleLocked,
@@ -21,10 +24,14 @@ function ColorCard({
           <span id="color-hex-code">{color.hexCode}</span>
           <span id="color-nickname">{color.nickname}</span>
         </div>
+
         <div id="color-actions" className="flex flex-col justify-center">
-          <button onClick={() => toggleLocked(color.id)}>
-            {color.locked ? "Unlock" : "Lock"}
-          </button>
+          <Button
+            aria-label={color.locked ? "Unpin color" : "Pin color"}
+            onPress={() => toggleLocked(color.id)}
+          >
+            {color.locked ? <PinOff size={25} /> : <Pin size={25} />}
+          </Button>
         </div>
       </div>
     </article>

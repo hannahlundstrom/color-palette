@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import Toolbar from "./Toolbar";
+import { useEffect, useState, type SetStateAction } from "react";
 import Color from "../../classes/color";
 import ColorCard from "../ColorCard/ColorCard";
 import { GridList, GridListItem } from "react-aria-components";
+import PaletteToolbar from "./PaletteToolbar";
 
 function Palette() {
   const [colorCount, setColorCount] = useState(3);
@@ -46,12 +46,11 @@ function Palette() {
 
   return (
     <section className="w-full flex flex-col flex-2">
-      <Toolbar
+      <PaletteToolbar
         colorCount={colorCount}
         setColorCount={setColorCount}
         randomizeColors={randomizeColors}
       />
-
       {/*TODO: Probably update selectionMode to include some selection functionality!*/}
       <GridList
         aria-label="Colors"
