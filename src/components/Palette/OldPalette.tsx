@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import Toolbar from "./Toolbar";
 import Color from "../../classes/color";
 import ColorCard from "../ColorCard/ColorCard";
-import { GridList, GridListItem } from "react-aria-components";
 
-function Palette() {
+function OldPalette() {
   const [colorCount, setColorCount] = useState(3);
   const [colors, setColors] = useState<Color[]>([]);
 
@@ -51,27 +50,13 @@ function Palette() {
         setColorCount={setColorCount}
         randomizeColors={randomizeColors}
       />
-
-      {/*TODO: Probably update selectionMode to include some selection functionality!*/}
-      <GridList
-        aria-label="Colors"
-        selectionMode="none"
-        layout="grid"
-        items={colors.slice(0, colorCount)}
-        className="grid h-full grid-rows-[1fr] auto-rows-fr grid-cols-[repeat(auto-fit,minmax(200px,1fr))]"
-      >
-        {(color) => (
-          <GridListItem textValue={color.name}>
-            <ColorCard
-              key={color.id}
-              color={color}
-              toggleLocked={toggleLocked}
-            />
-          </GridListItem>
-        )}
-      </GridList>
+      <div className="p-2.5 grid h-full grid-rows-[1fr] auto-rows-fr grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-2.5">
+        {colors.slice(0, colorCount).map((color) => (
+          <ColorCard key={color.id} color={color} toggleLocked={toggleLocked} />
+        ))}
+      </div>
     </section>
   );
 }
 
-export default Palette;
+export default OldPalette;

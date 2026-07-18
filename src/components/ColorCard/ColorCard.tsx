@@ -1,5 +1,6 @@
 import Color from "../../classes/color";
 
+//TODO: Update this to use react-aria components such as <Text>
 function ColorCard({
   color,
   toggleLocked,
@@ -8,16 +9,13 @@ function ColorCard({
   toggleLocked: (id: string) => void;
 }) {
   return (
-    <article className="w-full h-full rounded-md flex flex-col shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+    <article className="w-full h-full flex flex-col shadow-[0_0_5px_rgba(0,0,0,0.15)]">
       <div
         id="color-preview"
-        className="flex-1 rounded-t-md min-h-20"
+        className="flex-1 min-h-30"
         style={{ backgroundColor: color.hexCode }}
       ></div>
-      <div
-        id="color-details"
-        className="bg-gray-100 p-2 flex justify-between rounded-b-md"
-      >
+      <div id="color-details" className="bg-gray-100 p-2 flex justify-between">
         <div id="color-info" className="flex flex-col justify-center">
           <span id="color-name">{color.name}</span>
           <span id="color-hex-code">{color.hexCode}</span>
