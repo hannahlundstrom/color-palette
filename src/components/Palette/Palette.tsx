@@ -31,6 +31,19 @@ function Palette() {
     );
   };
 
+  const updateHexCode = (id: string, hexCode: string) => {
+    setColors((colors) =>
+      colors.map((color) => {
+        if (color.id === id) {
+          const clonedColor = color.clone();
+          clonedColor.updateHexCode(hexCode);
+          return clonedColor;
+        }
+        return color;
+      }),
+    );
+  };
+
   useEffect(() => {
     setColors((prev) => {
       if (prev.length >= colorCount) {
@@ -51,7 +64,11 @@ function Palette() {
         setColorCount={setColorCount}
         randomizeColors={randomizeColors}
       />
-      <Grid colors={colors.slice(0, colorCount)} toggleLocked={toggleLocked} />
+      <Grid
+        colors={colors.slice(0, colorCount)}
+        toggleLocked={toggleLocked}
+        updateHexCode={updateHexCode}
+      />
     </section>
   );
 }

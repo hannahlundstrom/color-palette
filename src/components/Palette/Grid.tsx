@@ -5,10 +5,11 @@ import type Color from "../../classes/color";
 interface GridProps {
   colors: Color[];
   toggleLocked: (id: string) => void;
+  updateHexCode: (id: string, hexCode: string) => void;
 }
 
 //TODO: Probably update selectionMode to include some selection functionality!
-function Grid({ colors, toggleLocked }: GridProps) {
+function Grid({ colors, toggleLocked, updateHexCode }: GridProps) {
   let { dragAndDropHooks } = useDragAndDrop<Color>({
     getItems(_, values) {
       return values.map((item) => {
@@ -35,6 +36,7 @@ function Grid({ colors, toggleLocked }: GridProps) {
             showActions={true}
             color={color}
             toggleLocked={toggleLocked}
+            updateHexCode={updateHexCode}
           />
         </GridListItem>
       )}

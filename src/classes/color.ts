@@ -47,6 +47,10 @@ class Color {
     this._locked = !this._locked;
   }
 
+  public updateHexCode(hexCode: string) {
+    this._hexCode = hexCode;
+  }
+
   public randomizeHexCode() {
     if (this._locked) return;
     this._hexCode = this.randomHexCode();
