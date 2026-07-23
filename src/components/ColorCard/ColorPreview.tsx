@@ -24,10 +24,10 @@ function ColorPreview({ color, updateHexCode }: ColorPreviewProps) {
   return (
     <div className="flex-1 min-h-30">
       <ColorPicker
-        value={color.hexCode}
-        onChange={(newColor) =>
-          updateHexCode(color.id, newColor.toString("hex"))
-        }
+        defaultValue={color.hexCode}
+        onChange={(newColor) => {
+          updateHexCode(color.id, newColor.toString("hex"));
+        }}
       >
         <DialogTrigger>
           <Button className="w-full h-full cursor-pointer">
@@ -37,10 +37,9 @@ function ColorPreview({ color, updateHexCode }: ColorPreviewProps) {
               colorName={color.name}
               className="w-full h-full"
             />
-            <span>Test label</span>
           </Button>
           <Popover
-            placement="top start"
+            placement="end top"
             className="rounded-xl border border-black/10 bg-white p-3 shadow-xl"
           >
             <Dialog className="flex flex-col gap-2">
@@ -50,12 +49,12 @@ function ColorPreview({ color, updateHexCode }: ColorPreviewProps) {
                 yChannel="brightness"
                 className="w-full max-w-56 aspect-square rounded-lg bg-neutral-300"
               >
-                <ColorThumb className="w-8 h-8 top-[50%] left-[50%] rounded-full border-2 border-white box-border w-8 h-8" />
+                <ColorThumb className="top-[50%] left-[50%] rounded-full border-2 border-white box-border w-8 h-8" />
               </ColorArea>
               <ColorSlider
                 colorSpace="hsb"
                 channel="hue"
-                className="font-sans orientation-horizontal:grid orientation-vertical:flex grid-cols-[1fr_auto] flex-col items-center gap-2 orientation-horizontal:w-56"
+                className="font-sans grid grid-cols-[1fr_auto] items-center gap-2 w-56"
               >
                 <Label>Hue</Label>
                 <SliderTrack
@@ -67,12 +66,12 @@ function ColorPreview({ color, updateHexCode }: ColorPreviewProps) {
                       : `${defaultStyle.background}, repeating-conic-gradient(#CCC 0% 25%, white 0% 50%) 50% / 16px 16px`,
                   })}
                 >
-                  <ColorThumb className="w-8 h-8 top-[50%] left-[50%] rounded-full border-2 border-white box-border w-8 h-8" />
+                  <ColorThumb className="top-[50%] left-[50%] rounded-full border-2 border-white box-border w-8 h-8" />
                 </SliderTrack>
               </ColorSlider>
-              <ColorField className="w-64 flex flex-col gap-1">
+              <ColorField className="w-56 flex flex-col gap-1">
                 <Label>Hex</Label>
-                <Input className="border rounded-lg min-h-9 font-sans text-sm py-0 px-3 box-border transition [-webkit-tap-highlight-color:transparent]"></Input>
+                <Input className="border rounded-lg min-h-9 font-sans text-sm py-0 px-3 box-border"></Input>
               </ColorField>
             </Dialog>
           </Popover>
