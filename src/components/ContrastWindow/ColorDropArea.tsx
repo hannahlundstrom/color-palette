@@ -10,7 +10,7 @@ interface ColorDropAreaProps {
 function ColorDropArea({ color, setColor }: ColorDropAreaProps) {
   return (
     <DropZone
-      className="min-w-50 w-full h-full flex justify-center items-center"
+      className="h-full min-h-20 aspect-square flex justify-center items-center"
       getDropOperation={(types) =>
         types.has("application/color") ? "copy" : "cancel"
       }
@@ -35,14 +35,16 @@ function ColorDropArea({ color, setColor }: ColorDropAreaProps) {
       }}
     >
       {color ? (
-        <ColorCard showActions={false} color={color} toggleLocked={() => {}} />
+        <ColorCard
+          showActions={false}
+          color={color}
+          toggleLocked={() => {}}
+          updateHexCode={() => {}}
+        />
       ) : (
-        <Text
-          slot="label"
-          className="bg-white w-full h-full flex items-center justify-center border-2 border-gray-300 border-dashed shadow-[0_0_5px_rgba(0,0,0,0.15)]"
-        >
-          Drop a color here
-        </Text>
+        <div className="bg-white h-full min-h-20 aspect-square flex items-center justify-center border-2 border-gray-300 border-dashed shadow-[0_0_5px_rgba(0,0,0,0.15)]">
+          <Text slot="label">Drop a color here</Text>
+        </div>
       )}
     </DropZone>
   );

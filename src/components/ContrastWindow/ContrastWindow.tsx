@@ -3,8 +3,9 @@ import { calcAPCA } from "apca-w3";
 import Color from "../../classes/color";
 import ColorDropArea from "./ColorDropArea";
 import ContrastPreview from "./ContrastPreview";
-import { Button } from "react-aria-components";
+import { Button, Label } from "react-aria-components";
 import { ArrowUpDown } from "lucide-react";
+import clsx from "clsx";
 
 function ContrastWindow() {
   const [backgroundColor, setBackgroundColor] = useState<Color | undefined>();
@@ -22,9 +23,9 @@ function ContrastWindow() {
   return (
     <section
       aria-label="Contrast preview window"
-      className="bg-gray-100 flex-2 w-full max-w-200 flex flex-col items-center p-6 gap-6"
+      className="bg-gray-100 w-fit max-w-200 flex flex-col items-center p-6 gap-6"
     >
-      <h2>Background color</h2>
+      <Label>Background color</Label>
       <ColorDropArea color={backgroundColor} setColor={setBackgroundColor} />
       <Button
         aria-label="Swap background and foreground colors"
@@ -32,17 +33,18 @@ function ContrastWindow() {
       >
         <ArrowUpDown size={20} />
       </Button>
-      <h2>Foreground color</h2>
+      <Label>Foreground color</Label>
       <ColorDropArea color={foregroundColor} setColor={setForegroundColor} />
-      {backgroundColor && foregroundColor && (
+      <div
+        aria-hidden={!backgroundColor || !foregroundColor}
+        className={clsx({ invisible: !backgroundColor || !foregroundColor })}
+      >
         <ContrastPreview
           backgroundColor={backgroundColor}
           foregroundColor={foregroundColor}
         />
-      )}
-      {backgroundColor && foregroundColor && (
         <p>Your Lc score is {contrastLc}</p>
-      )}
+      </div>
     </section>
   );
 }
